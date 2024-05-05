@@ -1,0 +1,72 @@
+version: "3"
+
+volumes:
+  local_postgres_data: {}
+  local_postgres_data_backups: {}
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: NGINX_SERVER
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/src
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+    networks:
+      - appnetwork
+  web:
+    build:
+      context: .
+      dockerfile: compose/django/Dockerfile
+    container_name: WEB
+    depends_on:
+      - db
+    volumes:
+      - ./src:/src
+      - /var/log/app:/var/log/app
+      - C:\Users\nikolay.korchik\Downloads\:/src/img
+    expose:
+      - "8000"
+    env_file:
+      - ./.envs/.django
+    environment:
+      - PROD=true
+    networks:
+      - appnetwork
+  bot:
+    build:
+      context: .
+      dockerfile: compose/bot/Dockerfile
+    container_name: BOT
+    depends_on:
+      - db
+    volumes:
+      - ./src:/src
+      - C:\Users\nikolay.korchik\Downloads\:/src/img
+    env_file:
+      - ./.envs/.django
+    environment:
+      - PROD=true
+    networks:
+      - appnetwork
+  db:
+    image: postgres:11-alpine
+    env_file:
+      - ./.envs/.postgres
+    expose:
+      - "5433" # Publishes 5433 to other containers but NOT to host machine
+    ports:
+      - "5433:5433"
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+      - local_postgres_data_backups:/backups
+    command: -p 5433
+    networks:
+    - appnetwork
+
+networks:
+  appnetwork:
+    driver: bridge

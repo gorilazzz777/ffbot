@@ -1,0 +1,12 @@
+DB_HOST=db
+DB_PORT=5433
+DB_PASSWORD=password
+DB_USER=user
+DB_NAME=django_db
+APP_KEY=s_-aro!sw@)bob$tojdq!s61$+3s22y=dbe!b5y3!p4ch&y3k#
+
+DJANGO_ALLOWED_HOSTS=*
+FIND_FACE_URL=http://127.0.0.1
+FIND_FACE_USER=admin
+FIND_FACE_PASS=root
+TG_TOKEN=7183801317:AAHWE2ww6y3F7rZY5zmNu93xeLuiL-gwRR4

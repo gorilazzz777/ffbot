@@ -1,0 +1,42 @@
+[
+{
+    "model": "webhook.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$mDENOFcf9vyw11t6kxi1AX$UbT1xKkxnU39boUj90f0KUthIOrKvQhPGvY36hnlh+I=",
+        "last_login": "2024-05-03T10:54:31.504Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@mail.ru",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-05-03T10:49:32Z",
+        "tg_chat_id": "314529904",
+        "send_notification": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "webhook.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$IWbZejb9svPUokBfxiZcG8$PF0C8fKF6Mq2y8V1NtDeKS4THqP7OHZoZ5syNGeouH4=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "pavel",
+        "first_name": "",
+        "last_name": "",
+        "email": "pavel@mail.ru",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-05-03T10:55:34Z",
+        "tg_chat_id": "127479687",
+        "send_notification": false,
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
